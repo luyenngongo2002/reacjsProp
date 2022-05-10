@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Item from './Item/Item'
-import product_data from "../../../../data";// gọi file
-
+import products_data from "../../../../data/data";
 class Right extends Component {
     render() {
         var rows = [];
@@ -26,4 +25,4 @@ class Right extends Component {
         )
     }
 }
-export default Right;
+

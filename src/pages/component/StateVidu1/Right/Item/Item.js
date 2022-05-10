@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 
 class Item extends Component {
-    
+
     render() {
         const affterClick = (tenSP) => {
-            alert("Order Succesfull " + this.props.tenSP)           
+            alert("Order Succesfull " + this.props.tenSP)
         }
         return (
             <div className="product">
                 <div className="text">
                     <div className="p-name">
-                        {/*<a href="item.html>LUMIX DCM-G2</a>*/} 
-                        <a href="item.html">{this.props.tenSP}</a> 
+                        {/*<a href="item.html>LUMIX DCM-G2</a>*/}
+                        <a href="item.html">{this.props.tenSP}</a>
                     </div>
                 </div>
                 <div className="p-img">
@@ -20,7 +20,7 @@ class Item extends Component {
                 <div className="text">
                     <div className="p-cat">{this.props.chitiet}</div>
                     <div className="p-price">Please call</div>
-                    <input 
+                    <input
                         type="button"
                         className="button"
                         name="add"
@@ -28,7 +28,7 @@ class Item extends Component {
                         onClick={affterClick}
                     />
                 </div>
-                <div className="clear" />  
+                <div className="clear" />
             </div>
         );
     }

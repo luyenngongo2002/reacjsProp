@@ -3,35 +3,35 @@
 //import Header from "./pages/component/header";
 //import Header from "./pages/component/footer";
 //import Header from "./pages/component/content";
-import Content from "./pages/component/content/content"
-function App() {
+//Bài tập Props
+// function App() {
+  
+//   return (
+//       <div className="container">
+//           <Content></Content> 
+//       </div>
+//   );
+// }
+//Bài tập States
+// import ColorBox from "./pages/component/ColorBox";
+// import Counter from "./pages/component/Counter";
+import One from "./pages/component/One";
+import State from "./pages/component/state"
+//import TodoFeature from "./pages/component/Todo/pages";
+// import ExamState from "./pages/component/ExamState";
+// import GetdataState from "./pages/component/GetdataSta
+// import Right from "./pages/component/content/Right/Right";
+ function App() { 
   return (
-      <div className="container">
-          <Content></Content> 
+    <div className="App">
+      {/* <One></One>
+      <State></State> */}
+      {/* <Counter></Counter>
+      <ColorBox></ColorBox> */}
+      {/* <GetdataState></GetdataState> */}
+      {/* <ExamState></ExamState> */}
+      {/* Gọi lại folder chứa nó */}
       </div>
   );
 }
-// component
 export default App;
-
-
-// import Numberone from './test';
-// import React, {Component} from 'react';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//     <div className="container">
-//       <div className="row">
-//         <Numberone tieude="Sản phẩm 1" linkanh="https://styleguru.vn/wp-content/uploads/2021/03/vay-dam-xoe-dep-3-1.jpg"></Numberone>
-//         <Numberone tieude="Sản phẩm 2" linkanh="https://styleguru.vn/wp-content/uploads/2021/03/vay-dam-xoe-dep-3-1.jpg"></Numberone>
-//         <Numberone tieude="Sản phẩm 1" linkanh="https://styleguru.vn/wp-content/uploads/2021/03/vay-dam-xoe-dep-3-1.jpg"></Numberone>
-//         <Numberone tieude="Sản phẩm 1" linkanh="https://styleguru.vn/wp-content/uploads/2021/03/vay-dam-xoe-dep-3-1.jpg"></Numberone>
-//       </div>
-//     </div>
-//   </div>
-//   );
-// }
-
-// export default App;
