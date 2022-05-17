@@ -54,8 +54,12 @@ class FormVidu5 extends Component {
                     <tbody>
                         <tr bgcolor>
                             <td colSpan={2} align="center" bgcolor="FF0099">
-
+                                <font coloer size={5}><b>KET QUA HOC TAP</b></font>
                             </td>
+                            <tr>
+                                <td width={125}><span>Điểm HK1:</span></td>
+                                <td width={261}></td>
+                            </tr>
                         </tr>
                     </tbody>
                 </table>
