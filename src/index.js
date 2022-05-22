@@ -6,13 +6,13 @@ import './index.css';
 // import State from './pages/component/StateVidu2/state';
 // import Content from './pages/component/StateVidu1/StateVidu1';
 import reportWebVitals from './reportWebVitals';
-import VdForm2 from './pages/component/FormVidu2';
+import FormVidu6 from './pages/component/FormViduCoffee';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <VdForm2 />
+    <FormVidu6/>
   </React.StrictMode>
   //component
 );

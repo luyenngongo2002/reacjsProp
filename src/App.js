@@ -110,11 +110,14 @@
 // }
 
 import React from 'react';
-import Category from './pages/component/Exercise/Category';
 const App = () => {
   return (
     <div>
-      <Category/>
+      <div className='container'>
+        <div className='row'>
+          <div className=''
+        </div>
+      </div>
     </div>
   )
 }
