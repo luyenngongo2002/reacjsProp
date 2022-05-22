@@ -6,7 +6,7 @@ class VdForm2 extends React.Component {
         this.state={
             data:'Initial data...'
         }
-        this.updateState=this.updateState.blind(this);
+        this.updateState=this.updateState.bind(this);
     };
     updateState(e)
 {
