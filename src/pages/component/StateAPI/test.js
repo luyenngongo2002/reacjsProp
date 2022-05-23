@@ -17,7 +17,7 @@ import React, { useEffect, useReducer } from "react";
             console.info(Math.random())
             getData()
         },[])
-         
+        
 
         const changeTypeProduct=(type)=>{
         

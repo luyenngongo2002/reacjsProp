@@ -1,56 +1,88 @@
-import React from "react";
-class FormVidu6 extends React.Component {
+import React, { Component } from "react";
+class Menu1 extends Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            type: '',
+            price: '',
+            money: ''
+        }   
     }
-
-    handleChange(event) {
-        this.setState({ value: event.target.value });
+    checkMoney = (money) => {
+        if (money=this.state.price) {
+            alert("Đồ uống của bạn là"+ this.state.type +"Số tiền dư là:"+(money-this.state.price)+"đ")
+        } else {
+            alert("Số tiền không đủ! Vui lòng nhập thêm tiền")
+        }
     }
-
-    handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
+    handleSubmit = (event) => {
         event.preventDefault();
+        if (this.state.price == "") {
+            alert("Vui lòng chọn đồ uống")
+        }
+        else if (this.state.money == "") {
+            alert("Vui lòng nhập tiền")
+        } else {
+            this.checkMoney(this.state.money)
+        }
     }
-
+    myChangeHandler = (event) => {
+        let key = event.target.name;
+        let value = event.target.value;
+        if (key == 'money') {
+            if (!Number(value)) {
+                alert("Vui lòng nhập lại tiền")
+            }
+        }
+        if (key == 'type') {    
+            if (value == "Cafe sữa") {
+                this.setState({ price: 12000 })
+            }
+            else if (value == "Cafe đá") {
+                this.setState({ price: 10000 })
+            }
+            else if (value == "Cafe đen") {
+                this.setState({ price: 20000 })
+            }
+            else {
+                this.setState({ price: 30000 })
+            }
+        }
+        this.setState({ [key]: value })
+    
+    }
     render() {
         return (
-            <form div="container" onSubmit={this.handleSubmit}>
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <table className="container">
+                        <tbody>
+                            <tr>
+                                <td className="form-group">Mời chọn thức uống</td>
+                                <td>
+                                    <select name="type" onChange={this.myChangeHandler}>
+                                        <option selected hidden>Mời chọn</option>
+                                        <option value="Cà phê sữa">Cà phê sữa</option>
+                                        <option value="Cà phê đá">Cà phê đá</option>
+                                        <option value="String dâu">String dâu</option>
+                                        <option value="Trà đá">Trà đá</option>
+                                    </select>
+                                </td><br/>
+                
+                                <td><label>Price ..............{this.state.price}</label></td>
+                                <tr>
+                                    <td>Mời nhập số tiền:
+                                    </td>
+                                    <td><input name="money" type="text" onChange={this.state.myChangeHandler} ></input></td>
+                                </tr>
 
-                <div class="mb-3" value={this.state.value} onChange={this.handleChange}>
-                    <input type="radio" value="Male" name="gender" /> Male
-                    <input type="radio" value="Female" name="gender" /> Female
-                    <input type="radio" value="Other" name="gender" /> Other
-                </div>
-                <div class="mb-3">
-                    <input type="checkbox" id="topping" name="topping" value="Paneer" />Paneer
-                </div >
-                <div class="mb-3">
-                    <label>
-                        Pick your favorite flavor:
-                        <select value={this.state.value} onChange={this.handleChange}>
-                            <option value="grapefruit">Grapefruit</option>
-                            <option value="lime">Lime</option>
-                            <option value="coconut">Coconut</option>
-                            <option value="mango">Mango</option>
-                        </select>
-                    </label>
-                </div>
-
-                <div class="mb-3">
-                    <label>
-                        Essay:
-                        <textarea value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" value="Thanh toán"></input>
+                </form>
+            </div>
         );
     }
 }
-export default FormVidu6;
+export default Menu1;
