@@ -11,8 +11,8 @@ class Crud extends Component {
             image: "",
             detail: "",
             action: "add",
-            products: products_data()
-            
+            products: products_data() //link toi ten data minh tao
+
         }
         this.changeName = this.changeName.bind(this);
         this.changeImage = this.changeImage.bind(this);
@@ -39,7 +39,7 @@ class Crud extends Component {
             this.setState({
                 products: [
                     ...this.state.products,
-                    {   
+                    {
                         id: this.state.products.length + 1,
                         name: this.state.name,
                         image: this.state.image,
@@ -49,9 +49,9 @@ class Crud extends Component {
             })
         }
         this.resetInput();
-        
+
     }
-    edit = (id) => {
+    editProduct = (id) => {
         var product = this.state.products.find(product => product.id === id)
         this.setState({
             action: 'edit',
@@ -69,7 +69,7 @@ class Crud extends Component {
             detail: this.state.detail
         }
 
-        this.setState({products:data})
+        this.setState({ products: data })
         this.resetInput();
     }
     deleteProduct = (id) => this.setState({
@@ -99,7 +99,7 @@ class Crud extends Component {
                         <div className="form-group">
                             <label>Image</label>
                             <input type="file" name="" className="form-control" onChange={this.changeImage} value={this.state.image} />
-                            
+
                         </div>
                         <div className="form-group">
                             <label>Detail</label>
@@ -129,9 +129,9 @@ class Crud extends Component {
                                         <tr key={index}>
                                             <td>{index + 1}</td>
                                             <td>{product.name}</td>
-                                            <td ><img width={100} src={product.image}/></td>
+                                            <td ><img width={100} src={"./" + product.image} /></td>
                                             <td>{product.detail}</td>
-                                            <td><label className="btn btn-primary" onClick={() => this.edit(product.id)}>Edit</label></td>
+                                            <td><label className="btn btn-primary" onClick={() => this.editProduct(product.id)}>Edit</label></td>
                                             <td><label className="btn btn-primary" onClick={() => this.deleteProduct(product.id)}>Delete</label></td>
                                         </tr>
                                     ))
