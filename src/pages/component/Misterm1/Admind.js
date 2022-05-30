@@ -38,7 +38,7 @@ class List extends Component {
         axios.get('https://61bc10bcd8542f0017824518.mockapi.io/product').then(res => {
             this.setState({ product: res.data });
         })
-        if (this.state.id == '') {
+        if (this.state.id === '') {
             document.getElementById('image-edit').style.display = 'none';
         } else {
             document.getElementById('image-edit').style.display = 'block';
@@ -65,6 +65,7 @@ class List extends Component {
     }
     showEditProduct = (id) => {
         var product = this.getProduct(id);
+        console.log(id);
         this.setState({
             id: product.id,
             image: product.image,
