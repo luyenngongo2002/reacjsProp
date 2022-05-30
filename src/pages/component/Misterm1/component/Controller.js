@@ -7,7 +7,6 @@ const Controller = () => {
         <div className="container">
             <Header />
             <br />
-            <br />
             <section>
                 <div className="row">
                     <Left />

@@ -6,7 +6,6 @@ const Left = () => {
   const [listProduct, setListProduct] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   console.log("re-render");
-  //   console.log(listProduct);
   useEffect(() => {
     const getData = () => {
       axios
@@ -16,12 +15,11 @@ const Left = () => {
           setIsLoaded(true);
         });
     };
-    // console.info(Math.random())
     if (!isLoaded) getData();
   }, [isLoaded]);
-  const Last = () => {
+  const LastNews = () => {
     const result = listProduct.filter(
-      (product) => product.type === "trong nuoc"
+      (product) => product.type === "chinh tri"
     );
     
     return (
@@ -35,10 +33,10 @@ const Left = () => {
       </div>
     );
   };
-  const Last2 = () => {
+  const LastNewTaiChinh = () => {
     console.log("list products", listProduct);
     const result = listProduct.filter(
-      (product) => product.type === "ngoai nuoc"
+      (product) => product.type === "tai chinh-kinh doanh"
     );
     return (
       <div className="card mt-5" style={{ width: "100%" }}>
@@ -54,16 +52,18 @@ const Left = () => {
   
   if (isLoaded)
     return (
-      <div className="col-lg-10 col-sm-10 col-md-10">
-        <div className="row">
-        <h2> Trong nuoc</h2>
-
-          <div className="col col-lg-6 col-sm-6 col-md-6"> <Last/> </div>
+      <div className="col-lg-10 col-sm-10 col-md-10 ">
+        <div className="row ">
+          <h2> Chính trị</h2>
+          <p className='ml-5'>Chính Sách Phát Triển / Ngân Hàng / Chứng Khoán / Tiêu Dùng / Doanh Nghiệp / Doanh Nhân / Địa Ốc / Làm Giàu</p>
           <div className="col col-lg-6 col-sm-6 col-md-6">
+            <LastNews />
+          </div>
+          <div className="col col-lg-6 col-sm-6 col-md-6">
+            
             {listProduct
-              .filter((product) => product.type === "trong nuoc")
+              .filter((product) => product.type === "chinh tri")
               .map((product) => {
-                console.log(product.id);
                 return (
                   <ItermLeft
                     image={product.image}
@@ -76,26 +76,28 @@ const Left = () => {
         </div>
         <br />
         <div className="row">
-        <h2> Ngoai nuoc</h2>
-          <div className="col col-lg-6 col-sm-6 col-md-6">
-            <Last2/>
-          </div>
-          <div className="col col-lg-6 col-sm-6 col-md-6">
-            {listProduct
-              .filter((product) => product.type === "ngoai nuoc")
-              .map((product) => {
-                console.log(product.id);
-                return (
-                  <ItermLeft
-                    image={product.image}
-                    nameItem={product.title}
-                    key={product.id}
-                  />
-                );
-              })}
-          </div>
+          <h2> Tài chính - Kinh doanh </h2>
+          <p className='ml-5'>Chính Sách Phát Triển / Ngân Hàng / Chứng Khoán / Tiêu Dùng / Doanh Nghiệp / Doanh Nhân / Địa Ốc / Làm Giàu</p>
+            <div className="col col-lg-6 col-sm-6 col-md-6">
+              <LastNewTaiChinh/>
+            </div>
+            <div className="col col-lg-6 col-sm-6 col-md-6">
+              {listProduct
+                .filter((product) => product.type === "tai chinh-kinh doanh")
+                .map((product) => {
+                  return (
+                    <ItermLeft
+                      image={product.image}
+                      nameItem={product.title}
+                      key={product.id}
+                    />
+                  );
+                })}
+            </div>
         </div>
+        
       </div>
+      
     );
   else {
     return <div>Loading...</div>;

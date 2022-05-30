@@ -1,10 +1,9 @@
-import Left from "./left";
-import Right from "./right";
+import Left from "./LeftItem";
+import Right from "./RightItem";
 const App =() =>{
 
   return(
      <div className="container">
-          
           <section>
             <div className="row">
              <Left/>

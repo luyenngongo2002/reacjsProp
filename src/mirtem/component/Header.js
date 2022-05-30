@@ -1,12 +1,11 @@
-// import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <Link to={"/"} className="navbar-brand" href="#">
-            HOME
+            Tin tức
           </Link>
           <button
             className="navbar-toggler"
@@ -17,8 +16,8 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
           </button>
+
           <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -45,10 +44,10 @@ const Header = () => {
               </button>
             </form>
           </div>
+          
         </div>
       </nav>
-
-          </header>
+    </header>
   );
 };
 export default Header;

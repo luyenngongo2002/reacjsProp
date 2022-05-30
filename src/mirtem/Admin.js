@@ -8,6 +8,7 @@ class List extends Component {
       product: [],
       id: "",
       image: "",
+      type:"chinh tri",
       title: "",
       description: "",
     };
@@ -31,6 +32,7 @@ class List extends Component {
             id: data.id,
             image: data.image,
             title: data.title,
+            date:data.date,
             description: data.description,
           });
         })
@@ -74,6 +76,7 @@ class List extends Component {
       id: product.id,
       image: product.image,
       title: product.title,
+      type:product.type,
       description: product.description,
     });
     document.getElementById("image-edit").style.display = "block";
@@ -88,11 +91,13 @@ class List extends Component {
     return -1;
   };
   onSave = (event) => {
+    
     event.preventDefault();
     if (this.state.id == "") {
       if (
         this.state.image !== "" &&
         this.state.title !== "" &&
+        this.state.type!== "" &&
         this.state.description !== ""
       ) {
         axios({
@@ -100,6 +105,7 @@ class List extends Component {
           url: `https://61bc10bcd8542f0017824518.mockapi.io/product`,
           data: {
             image: this.state.image,
+            type : this.state.type,
             title: this.state.title,
             description: this.state.description,
           },
@@ -118,6 +124,7 @@ class List extends Component {
           image: this.state.image,
           title: this.state.title,
           description: this.state.description,
+          date: this.state.date
         },
       }).then((res) => {
         // this.componentDidMount();
@@ -128,7 +135,9 @@ class List extends Component {
       id: "",
       image: "",
       title: "",
+      type:"",
       description: "",
+      date:""
     });
   };
   onDelete = (id) => {
@@ -157,8 +166,8 @@ class List extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-4">
-            <h1> Insert News</h1>
+          <div className="col-12">
+            <h1> Thêm tin tức</h1>
             <form onSubmit={this.onSave}>
               <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Tiêu đề</label>
@@ -177,11 +186,23 @@ class List extends Component {
                   type="text"
                   name="description"
                   onChange={this.onChange}
-                  defaultvalue={this.state.title}
+                  defaultvalue={this.state.description}
                   className="form-control"
                   id="exampleInputEmail2"
                   aria-describedby="emailHelp"
                 />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail2">Loại tin tức</label>
+                <select
+                  type="text"
+                  name="type"
+                  onChange={this.onChange}
+                  className="form-control"
+                >
+                  <option value="trong nuoc">Chính trị</option>
+                  <option value="ngoai nuoc">Tài Chính - Kinh doanh</option>
+                </select>
               </div>
               <div className="form-group">
                 <label>Ảnh</label>
@@ -205,16 +226,17 @@ class List extends Component {
               </button>
             </form>
           </div>
-          <div className="col-8">
+          <div className="col-12">
             <div className="row">
-              <h1>News</h1>
+              <h1>Tin tức</h1>
               <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Tiêu đề</th>
+                    <th scope="col">Hình ảnh</th>
+                    <th scope="col">Thể loại</th>
+                    <th scope="col">Mô tả</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -231,7 +253,7 @@ class List extends Component {
                           alt="Card image cap"
                         />
                       </td>
-
+                      <td>{product.type}</td>
                       <td>{product.description}</td>
                       <td>
                         <button
