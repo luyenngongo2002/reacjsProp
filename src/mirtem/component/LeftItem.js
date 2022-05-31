@@ -17,6 +17,7 @@ const Left = () => {
     };
     if (!isLoaded) getData();
   }, [isLoaded]);
+  
   const LastNews = () => {
     const result = listProduct.filter(
       (product) => product.type === "chinh tri"
@@ -34,7 +35,6 @@ const Left = () => {
     );
   };
   const LastNewTaiChinh = () => {
-    console.log("list products", listProduct);
     const result = listProduct.filter(
       (product) => product.type === "tai chinh-kinh doanh"
     );
@@ -55,7 +55,7 @@ const Left = () => {
       <div className="col-lg-10 col-sm-10 col-md-10 ">
         <div className="row ">
           <h2> Chính trị</h2>
-          <p className='ml-5'>Chính Sách Phát Triển / Ngân Hàng / Chứng Khoán / Tiêu Dùng / Doanh Nghiệp / Doanh Nhân / Địa Ốc / Làm Giàu</p>
+          <b className="ml-5">Chính Sách Phát Triển / Ngân Hàng / Chứng Khoán / Tiêu Dùng / Doanh Nghiệp / Doanh Nhân / Địa Ốc / Làm Giàu</b>
           <div className="col col-lg-6 col-sm-6 col-md-6">
             <LastNews />
           </div>
@@ -77,7 +77,7 @@ const Left = () => {
         <br />
         <div className="row">
           <h2> Tài chính - Kinh doanh </h2>
-          <p className='ml-5'>Chính Sách Phát Triển / Ngân Hàng / Chứng Khoán / Tiêu Dùng / Doanh Nghiệp / Doanh Nhân / Địa Ốc / Làm Giàu</p>
+          <b>Chính Sách Phát Triển / Ngân Hàng / Chứng Khoán / Tiêu Dùng / Doanh Nghiệp / Doanh Nhân / Địa Ốc / Làm Giàu</b>
             <div className="col col-lg-6 col-sm-6 col-md-6">
               <LastNewTaiChinh/>
             </div>

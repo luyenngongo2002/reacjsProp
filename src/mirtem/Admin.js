@@ -66,7 +66,6 @@ class List extends Component {
     this.setState({
       [event.target.name]: "images/" + event.target.files[0].name,
     });
-    console.log(event.target.files[0].image);
   };
   showEditProduct = (id) => {
     var product = this.getProduct(id);
@@ -175,7 +174,7 @@ class List extends Component {
                   type="text"
                   name="title"
                   onChange={this.onChange}
-                  defaultvalue={this.state.title}
+                  defaultValue={this.state.title}
                   className="form-control"
                   id="exampleInputPassword1"
                 />
@@ -186,7 +185,7 @@ class List extends Component {
                   type="text"
                   name="description"
                   onChange={this.onChange}
-                  defaultvalue={this.state.description}
+                  defaultValue={this.state.description}
                   className="form-control"
                   id="exampleInputEmail2"
                   aria-describedby="emailHelp"
@@ -255,7 +254,7 @@ class List extends Component {
                       </td>
                       <td>{product.type}</td>
                       <td>{product.description}</td>
-                      <td>
+                      <td className="d-flex">
                         <button
                           className="btn btn-primary"
                           onClick={() => this.showEditProduct(product.id)}
@@ -263,10 +262,10 @@ class List extends Component {
                           Edit
                         </button>
                         <button
-                          className="btn btn-danger"
+                          className="btn btn-danger "
                           onClick={() => this.onDelete(product.id)}
                         >
-                          delete
+                          Delete
                         </button>
                       </td>
                     </tr>
